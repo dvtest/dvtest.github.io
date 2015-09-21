@@ -1,0 +1,169 @@
+<head>
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+<script type="text/javascript" src="jquery.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+      <style>
+        .modalMouseOver{
+				position:absolute;
+				left:0px;
+				top:0px;
+				height:100%;
+				width:100%;
+				opacity:0;
+				z-index:2;
+			}
+			.modalMouseOver:hover
+			{
+				opacity: 1;
+			}
+            .modalOverlay{
+				position:absolute;
+				width:100%;
+				height:100%;
+				opacity:0;
+				background-color: black;
+				z-index:1;
+			}
+            .modalBackground{
+				position:absolute;
+				left:0px;
+				top:0px;
+				height:100%;
+				width:100%;
+				z-index:0;
+			}
+            .modalDescription{
+				position: absolute;
+				width:100%;
+				height:60px;
+				bottom: 0px;
+        opacity: 0;
+				z-index: 2;
+			}
+			.modal{
+	width:1000px;
+	height:500px;
+}
+
+        </style>
+
+</head>
+
+<body>
+
+    <h3
+        id="brand">Brand Test</p>
+    </h3>
+						<a class="image" id="base"><img src="images/temppic1.jpg" alt="" style="height: 70%;width:20%;top:20%;left:1%;" /></a>
+    <img class="modalMouseOver" id="product1" src="images/product1.jpg" style="height: 12%; width:8%;top: 22%; left:9%;"onmouseover="showProduct1(this)" onmouseout="offProduct1(this)" onmousedown="showProduct1(this)" onclick="showProduct1(this); product1();"/>
+                        <img class="modalMouseOver" id="product2" src="images/product2.jpeg" style="width: 6%; height: 9%; top:40%; left:9%;" onmouseover="showProduct2(this)" onmouseout="offProduct2(this)" onmousedown="showProduct2(this)" onclick="showProduct2(this); product2();"/>
+
+  <a class="image" id="sampleimg"><img src="images/temppic1.jpg" style="height: 70%;width:20%;top:20%;left:40%;"/></a>
+  <h2 class="modalDescription" id="productInfo1" style="width:8%; height: 12%; top: 22%; left:28%; background:black; color:#fff; text-align:center"onmouseover="showInfo1(this)" onmouseout="offInfo1(this); info1();" onmousedown="showInfo1(this)" onclick="showInfo1(this); info1();"> <br><br><br><br>   Women's Shirt: $15 </h2>
+  <h2 class="modalDescription" id="productInfo2" style="width: 6%; height: 19%; top:34%; left:28%; background:black; color:#fff; text-align:center" onmouseover="showInfo2(this)" onmouseout="offInfo2(this); info2();" onmousedown="showInfo2(this)" onclick="showInfo2(this); info2();"> <br><br><br><br><br><br><br> Jean Shorts: $10 <br><br><br></h2>
+
+<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script>
+var key = getQueryVariable("key");
+
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    if (pair[0] == variable) {
+      return pair[1];
+    }
+  }
+  alert('Query Variable ' + variable + ' not found');
+}
+    var element = document.getElementById("brand");
+        element.innerHTML = key;
+    function showProduct1(x) {
+                    x.style.width = "20%";
+                    x.style.height = "70%";
+                    x.style.top = "11%";
+                    x.style.left ="1%";
+			}
+    	function offProduct1(x) {
+                    x.style.width = "8%";
+                    x.style.height = "12%";
+                    x.style.top = "22%";
+                    x.style.left ="9%";
+                }
+
+        function showProduct2(x) {
+                    x.style.width = "20%";
+                    x.style.height = "70%";
+                    x.style.top = "11%";
+                    x.style.left ="1%";
+			}
+    	function offProduct2(x) {
+                    x.style.width = "6%";
+                    x.style.height = "19%";
+                    x.style.top = "40%";
+                    x.style.left ="9%";
+
+        }
+    function product1() {
+				document.getElementById(product1).style.zIndex = "1";
+				document.getElementById(product2).style.zIndex = "0";
+			}
+			function product2() {
+				document.getElementById(product2).style.zIndex = "2";
+			}
+      function showInfo1(x) {
+                      x.style.width = "20%";
+                      x.style.height = "70%";
+                      x.style.top = "8%";
+                      x.style.left ="20.5%";
+                      x.style.opacity="0.5";
+
+
+        }
+        function offInfo1(x) {
+                      x.style.width = "8%";
+                      x.style.height = "12%";
+                      x.style.top = "22%";
+                      x.style.left ="28%";
+                      x.style.opacity="0";
+
+                  }
+
+
+          function showInfo2(x) {
+                      x.style.width = "20%";
+                      x.style.height = "70%";
+                      x.style.top = "8%";
+                      x.style.left ="20.5%";
+                      x.style.opacity="0.5";
+
+        }
+        function offInfo2(x) {
+                      x.style.width = "6%";
+                      x.style.height = "20%";
+                      x.style.top = "34%";
+                      x.style.left ="28%";
+                      x.style.opacity="0";
+
+
+          }
+          function info1() {
+              document.getElementById(sampleimg).style.zIndex = "0";
+      				document.getElementById(productInfo1).style.zIndex = "1";
+      				document.getElementById(productInfo2).style.zIndex = "0";
+      			}
+      			function info2() {
+              document.getElementById(sampleimg).style.zIndex = "0";
+      				document.getElementById(productInfo1).style.zIndex = "0";
+      				document.getElementById(productInfo2).style.zIndex = "1";
+      			}
+</script>
+
+</body>
