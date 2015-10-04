@@ -2098,8 +2098,7 @@
 			-moz-transition: opacity 0.25s ease-in-out;
 			-webkit-transition: opacity 0.25s ease-in-out;
 			-ms-transition: opacity 0.25s ease-in-out;
-			transition: opacity 0.25s ease-in-out;
-			background-image: url("images/overlay.png");
+			transition: opacity 0.25s ease-in-out;;
 			content: '';
 			display: block;
 			height: 100%;
@@ -2111,7 +2110,7 @@
 		}
 
 		.image img {
-			display: block;
+
 		}
 
 		.image.fit {
