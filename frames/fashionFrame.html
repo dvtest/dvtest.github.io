@@ -5,10 +5,13 @@
 <body>
     <img src="../images/pic01.png" usemap="#glasses" id="fashion" position="relative" style="max-width:900px;width:100%"/>
     <map name="glasses" id="fashionmap">
-      <area shape="poly" coords="326, 89, 366, 90, 389, 84, 411, 94, 422, 93, 438, 89, 461, 99, 457, 122, 443, 133, 412, 107, 401, 132, 370, 124, 363, 99, 329, 97" target="_blank" href="http://www.kasabe.bigcartel.com/product/dazed-sunglasses" onmouseover="glassesHover()" onmouseout="defaultPic()"/>
+      <area shape="poly" coords="326, 89, 366, 90, 389, 84, 411, 94, 422, 93, 438, 89, 461, 99, 457, 122, 443, 133, 412, 107, 401, 132, 370, 124, 363, 99, 329, 97" target="_blank" onmousedown="glassesTap()" onmouseover="glassesHover()" onmouseout="defaultPic()"/>
       <area shape="poly" coords="417, 184, 410, 200, 423, 292, 370, 319, 449, 450, 450, 528, 470, 592, 534, 598, 512, 249, 466, 228, 442, 213, 423, 181" target="_blank" href="http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html" onmouseover="jacketHover()" onmouseout="defaultPic()"/>
    <area shape="poly" coords="342, 170, 311, 187, 275, 203, 240, 216, 258, 226, 227, 242, 193, 598, 246, 594, 317, 414, 335, 332" target="_blank" href="http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html" onmouseover="jacketHover()" onmouseout="defaultPic()"/>
     </map>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <button id="glassClick"></button>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="../assets/js/imageMapResizer.min.js"></script>
     <script type="text/javascript">
@@ -25,8 +28,40 @@
        {
          $("#fashion").attr('src', '../images/jacketOverlay.png');
        }
+       function glassesTap()
+       {
+         document.getElementById("glassClick").click();
+       }
+
 
   </script>
+  <script>
+    var handler = StripeCheckout.configure({
+      key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+      image: '/images/popupGlass.png',
+      locale: 'auto',
+      token: function(token) {
+        // Use the token to create the charge with a server-side script.
+        // You can access the token ID with `token.id`
+      }
+    });
+
+    $('#glassClick').on('click', function(e) {
+      // Open Checkout with further options
+      handler.open({
+        name: 'Kasabe Sunglasses',
+        description: '2 left in stock',
+        amount: 2000
+      });
+      e.preventDefault();
+    });
+
+    // Close Checkout on page navigation
+    $(window).on('popstate', function() {
+      handler.close();
+    });
+  </script>
+
 </body>
 
 </html>
