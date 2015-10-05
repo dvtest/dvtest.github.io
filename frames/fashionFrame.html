@@ -8,6 +8,7 @@
       <area shape="poly" coords="326, 89, 366, 90, 389, 84, 411, 94, 422, 93, 438, 89, 461, 99, 457, 122, 443, 133, 412, 107, 401, 132, 370, 124, 363, 99, 329, 97" target="_blank" onmousedown="glassesTap()" onmouseover="glassesHover()" onmouseout="defaultPic()"/>
       <area shape="poly" coords="417, 184, 410, 200, 423, 292, 370, 319, 449, 450, 450, 528, 470, 592, 534, 598, 512, 249, 466, 228, 442, 213, 423, 181" target="_blank" href="http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html" onmouseover="jacketHover()" onmouseout="defaultPic()"/>
    <area shape="poly" coords="342, 170, 311, 187, 275, 203, 240, 216, 258, 226, 227, 242, 193, 598, 246, 594, 317, 414, 335, 332" target="_blank" href="http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html" onmouseover="jacketHover()" onmouseout="defaultPic()"/>
+   <area shape="poly" coords="417, 149, 412, 145, 403, 150, 396, 151, 406, 160, 426, 160, 425, 147, 421, 146, 415, 147" target="_blank" href="http://www.sephora.com/audacious-lipstick-P387906" onmouseover="lipsHover()" onmouseout="defaultPic()"/>
     </map>
     <script src="https://checkout.stripe.com/checkout.js"></script>
     <button id="glassClick"></button>
@@ -27,6 +28,10 @@
        function jacketHover()
        {
          $("#fashion").attr('src', '../images/jacketOverlay.png');
+       }
+       function lipsHover()
+       {
+         $("#fashion").attr('src', '../images/lipstickOverlay.png');
        }
        function glassesTap()
        {
