@@ -38,20 +38,19 @@
        }
        function jacketHover()
        {
+         jacketFlag = 1;
          $("#fashion").attr('src', '../images/jacketOverlay.png');
        }
        function jacketTap()
        {
-         if(jacketFlag = 0)
+         if(jacketFlag == 0)
          {
            $("#fashion").attr('src', '../images/jacketOverlay.png');
            jacketFlag = 1;
          }
-         else if (jacketFlag = 1) {
+         else if (jacketFlag == 1) {
 
-          // OpenInNewTab("http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html")
-          jacketFlag = 0;
-          
+          OpenInNewTab("http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html")
           defaultPic();
 
          }
