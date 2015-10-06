@@ -38,7 +38,7 @@
        }
        function jacketTap()
        {
-         if(typeof window.orientation !== 'undefined'){
+         if(typeof window.orientation !== 'undefined' && jacketFlag == 0){
            $("#fashion").attr('src', '../images/jacketOverlay.png');
            jacketFlag = 1;
          }
