@@ -1,0 +1,102 @@
+<html>
+<head>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+    <img src="../images/edition.jpg" usemap="#glasses" id="fashion" position="relative" style="max-width:900px;width:100%;display:block;margin:0 auto;"/>
+    <map name="glasses" id="fashionmap">
+   <area shape="poly" coords="421, 141, 376, 171, 345, 212, 346, 241, 365, 286, 381, 275, 367, 226, 387, 204, 394, 291, 437, 313, 448, 284, 458, 307, 486, 297, 480, 205, 492, 276, 491, 290, 509, 293, 513, 230, 493, 161, 453, 141, 439, 155" target="_blank" onmousedown="glassesTap()" onmouseover="glassesHover()" onmouseout="defaultPic() "/>
+   <area shape="poly" coords="396, 296, 437, 313, 447, 283, 458, 308, 487, 299, 489, 457, 468, 462, 444, 327, 441, 453, 417, 455" target="_blank" href="http://www.sephora.com/audacious-lipstick-P387906" onmouseover="lipsHover()" onmouseout="defaultPic()" />
+   <area shape="poly" coords="434, 461, 421, 460, 412, 497, 438, 496, 439, 467, 475, 463, 488, 459, 505, 501, 482, 501, 469, 489, 474, 464" target="_blank" onmousedown="jacketTap()" onmouseover="jacketHover()" onmouseout="defaultPic()"/>
+    </map>
+    <!-- <h1>
+      Unravel images to reveal the products within.
+    </h1> -->
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <button id="glassClick" style="display:none"></button>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../assets/js/imageMapResizer.min.js"></script>
+    <script type="text/javascript">
+      var glassesFlag = 0;
+      var jacketFlag = 0;
+      var lipsFlag = 0;
+	     $('map').imageMapResize();
+       function glassesHover()
+       {
+         glassesFlag = 1;
+         $("#fashion").attr('src', '../images/shirtOverlay.jpg');
+       }
+       function defaultPic()
+       {
+         glassesFlag = 0;
+         jacketFlag = 0;
+         lipsFlag = 0;
+         $("#fashion").attr('src', '../images/edition.jpg');
+       }
+       function jacketHover()
+       {
+         jacketFlag = 1;
+         $("#fashion").attr('src', '../images/shoesOverlay.jpg');
+       }
+       function jacketTap()
+       {
+         if(jacketFlag == 0)
+         {
+           jacketFlag = 1;
+           $("#fashion").attr('src', '../images/shoesOverlay.jpg');
+         }
+         else if (jacketFlag == 1) {
+
+          OpenInNewTab("http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html")
+          defaultPic();
+
+         }
+       }
+       function lipsHover()
+       {
+         lipsFlag = 1;
+         $("#fashion").attr('src', '../images/pantsOverlay.jpg');
+       }
+       function glassesTap()
+       {
+         document.getElementById("glassClick").click();
+         defaultPic();
+       }
+       function OpenInNewTab(url)
+       {
+          var win = window.open(url, '_blank');
+          win.focus();
+        }
+
+
+  </script>
+  <script>
+    var handler = StripeCheckout.configure({
+      key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+      image: '/images/popupGlass.png',
+      locale: 'auto',
+      token: function(token) {
+        // Use the token to create the charge with a server-side script.
+        // You can access the token ID with `token.id`
+      }
+    });
+
+    $('#glassClick').on('click', function(e) {
+      // Open Checkout with further options
+      handler.open({
+        name: 'Kasabe Sunglasses',
+        description: '2 left in stock',
+        amount: 2000
+      });
+      e.preventDefault();
+    });
+
+    // Close Checkout on page navigation
+    $(window).on('popstate', function() {
+      handler.close();
+    });
+  </script>
+
+</body>
+
+</html>
