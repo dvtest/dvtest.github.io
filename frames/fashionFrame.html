@@ -29,9 +29,6 @@
        }
        function defaultPic()
        {
-         glassesFlag = 0;
-         jacketFlag = 0;
-         lipsFlag = 0;
          $("#fashion").attr('src', '../images/pic01.png');
        }
        function jacketHover()
@@ -41,10 +38,9 @@
        }
        function jacketTap()
        {
-         if(jacketFlag == 0)
-         {
-           jacketFlag = 1;
+         if(typeof window.orientation !== 'undefined'){
            $("#fashion").attr('src', '../images/jacketOverlay.png');
+           jacketFlag = 1;
          }
          else if (jacketFlag == 1) {
 
