@@ -33,11 +33,12 @@
        {
          if(typeof window.orientation !== 'undefined' && jacketFlag != 1)
          {
-           jacketHover();
+           $("#fashion").attr('src', '../images/jacketOverlay.png');
            setJacketFlag();
          }
          else if (jacketFlag == 1)
          {
+           jacketFlag = 0;
            OpenInNewTab("http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html")
            defaultPic();
          }
