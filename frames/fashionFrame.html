@@ -38,16 +38,15 @@
        }
        function jacketTap()
        {
-         if(typeof window.orientation !== 'undefined' && jacketFlag == 0){
-           $("#fashion").attr('src', '../images/jacketOverlay.png');
-           jacketFlag = 1;
+         if(document.getElementById("fashion").src == 'http://dvtest.github.io/images/jacketOverlay.png')
+         {
+           OpenInNewTab("http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html")
+           defaultPic();
          }
-         else if(jacketFlag==1){
 
-          OpenInNewTab("http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html")
-          defaultPic();
+          $("#fashion").attr('src', '../images/jacketOverlay.png');
 
-         }
+
        }
        function lipsHover()
        {
