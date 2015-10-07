@@ -33,9 +33,10 @@
        {
          if(typeof window.orientation !== 'undefined' && jacketFlag != 1)
          {
-           jacketHover();
+           jacketOverlay();
+           setJacketFlag();
          }
-         else if (document.getElementById("fashion").src == "http://dvtest.github.io/images/jacketOverlay.png")
+         else if (jacketFlag == 1)
          {
            OpenInNewTab("http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html")
            defaultPic();
@@ -45,8 +46,15 @@
        function jacketHover()
        {
          $("#fashion").attr('src', '../images/jacketOverlay.png');
+         if(typeof window.orientation == 'undefined' && jacketFlag != 1)
+         {
+           setJacketFlag();
+         }
        }
-
+function setJacketFlag()
+{
+  jacketFlag = 1;
+}
        function lipsHover()
        {
          lipsFlag = 1;
