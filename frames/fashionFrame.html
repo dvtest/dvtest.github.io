@@ -3,6 +3,93 @@
   <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
 <body>
+  <script type="text/javascript">
+
+  var jacketFlag = 0;
+     $('map').imageMapResize();
+     function glassesHover()
+     {
+       glassesFlag = 1;
+       $("#fashion").attr('src', '../images/glassesOverlay.png');
+     }
+     function defaultPic()
+     {
+       jacketFlag = 0;
+       $("#fashion").attr('src', '../images/pic01.png');
+     }
+     function jacketTap()
+     {
+       if(typeof window.orientation !== 'undefined' && jacketFlag != 1)
+       {
+         $("#fashion").attr('src', '../images/jacketOverlay.png');
+         setJacketFlag();
+       }
+       else if (jacketFlag == 1)
+       {
+         jacketFlag = 0;
+         OpenInNewTab("http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html")
+         defaultPic();
+       }
+
+     }
+     function jacketHover()
+     {
+       if(typeof window.orientation == 'undefined' && jacketFlag != 1)
+       {
+         $("#fashion").attr('src', '../images/jacketOverlay.png');
+         setJacketFlag();
+       }
+     }
+function setJacketFlag()
+{
+jacketFlag = 1;
+}
+     function lipsHover()
+     {
+       lipsFlag = 1;
+       $("#fashion").attr('src', '../images/lipstickOverlay.png');
+     }
+     function glassesTap()
+     {
+       document.getElementById("glassClick").click();
+       defaultPic();
+     }
+     function OpenInNewTab(url)
+     {
+        var win = window.open(url, '_blank');
+        win.focus();
+      }
+
+
+</script>
+<script>
+  var handler = StripeCheckout.configure({
+    key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+    image: '/images/popupGlass.png',
+    locale: 'auto',
+    token: function(token) {
+      // Use the token to create the charge with a server-side script.
+      // You can access the token ID with `token.id`
+    }
+  });
+
+  $('#glassClick').on('click', function(e) {
+    // Open Checkout with further options
+    handler.open({
+      name: 'Kasabe Sunglasses',
+      description: '2 left in stock',
+      amount: 2000
+    });
+    e.preventDefault();
+  });
+
+  // Close Checkout on page navigation
+  $(window).on('popstate', function() {
+    handler.close();
+  });
+
+</script>
+
     <img src="../images/pic01.png" usemap="#glasses" id="fashion" position="relative" style="max-width:900px;width:100%;display:block;margin:0 auto;"/>
     <map name="glasses" id="fashionmap">
       <area shape="poly" coords="326, 89, 366, 90, 389, 84, 411, 94, 422, 93, 438, 89, 461, 99, 457, 122, 443, 133, 412, 107, 401, 132, 370, 124, 363, 99, 329, 97" target="_blank" onmousedown="glassesTap()" onmouseover="glassesHover()" onmouseout="defaultPic()"/>
@@ -17,90 +104,6 @@
     <button id="glassClick" style="display:none"></button>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="../assets/js/imageMapResizer.min.js"></script>
-    <script type="text/javascript">
-    var jacketFlag = 0;
-	     $('map').imageMapResize();
-       function glassesHover()
-       {
-         glassesFlag = 1;
-         $("#fashion").attr('src', '../images/glassesOverlay.png');
-       }
-       function defaultPic()
-       {
-         jacketFlag = 0;
-         $("#fashion").attr('src', '../images/pic01.png');
-       }
-       function jacketTap()
-       {
-         if(typeof window.orientation !== 'undefined' && jacketFlag != 1)
-         {
-           $("#fashion").attr('src', '../images/jacketOverlay.png');
-           setJacketFlag();
-         }
-         else if (jacketFlag == 1)
-         {
-           jacketFlag = 0;
-           OpenInNewTab("http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html")
-           defaultPic();
-         }
-
-       }
-       function jacketHover()
-       {
-         if(typeof window.orientation == 'undefined' && jacketFlag != 1)
-         {
-           $("#fashion").attr('src', '../images/jacketOverlay.png');
-           setJacketFlag();
-         }
-       }
-function setJacketFlag()
-{
-  jacketFlag = 1;
-}
-       function lipsHover()
-       {
-         lipsFlag = 1;
-         $("#fashion").attr('src', '../images/lipstickOverlay.png');
-       }
-       function glassesTap()
-       {
-         document.getElementById("glassClick").click();
-         defaultPic();
-       }
-       function OpenInNewTab(url)
-       {
-          var win = window.open(url, '_blank');
-          win.focus();
-        }
-
-
-  </script>
-  <script>
-    var handler = StripeCheckout.configure({
-      key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
-      image: '/images/popupGlass.png',
-      locale: 'auto',
-      token: function(token) {
-        // Use the token to create the charge with a server-side script.
-        // You can access the token ID with `token.id`
-      }
-    });
-
-    $('#glassClick').on('click', function(e) {
-      // Open Checkout with further options
-      handler.open({
-        name: 'Kasabe Sunglasses',
-        description: '2 left in stock',
-        amount: 2000
-      });
-      e.preventDefault();
-    });
-
-    // Close Checkout on page navigation
-    $(window).on('popstate', function() {
-      handler.close();
-    });
-  </script>
 
 </body>
 
