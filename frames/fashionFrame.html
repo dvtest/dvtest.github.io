@@ -27,6 +27,7 @@
        }
        function defaultPic()
        {
+         jacketFlag = 0;
          $("#fashion").attr('src', '../images/pic01.png');
        }
        function jacketTap()
@@ -46,9 +47,9 @@
        }
        function jacketHover()
        {
-         $("#fashion").attr('src', '../images/jacketOverlay.png');
          if(typeof window.orientation == 'undefined' && jacketFlag != 1)
          {
+           $("#fashion").attr('src', '../images/jacketOverlay.png');
            setJacketFlag();
          }
        }
