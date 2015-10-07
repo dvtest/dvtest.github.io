@@ -18,9 +18,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="../assets/js/imageMapResizer.min.js"></script>
     <script type="text/javascript">
-      var glassesFlag = 0;
-      var jacketFlag = 0;
-      var lipsFlag = 0;
 	     $('map').imageMapResize();
        function glassesHover()
        {
@@ -38,15 +35,16 @@
        }
        function jacketTap()
        {
-         if(document.getElementById("fashion").src == 'http://dvtest.github.io/images/jacketOverlay.png')
-         {
-           OpenInNewTab("http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html")
-           defaultPic();
+         if(typeof window.orientation !== 'undefined' && jacketFlag == 0){
+           $("#fashion").attr('src', '../images/jacketOverlay.png');
+           jacketFlag++;
          }
+         else if (jacketFlag >= 1)
+         {
+          OpenInNewTab("http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html")
+          defaultPic();
 
-          $("#fashion").attr('src', '../images/jacketOverlay.png');
-
-
+         }
        }
        function lipsHover()
        {
