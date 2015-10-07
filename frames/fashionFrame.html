@@ -1,64 +1,6 @@
 <html>
 <head>
   <link rel="stylesheet" href="../assets/css/main.css" />
-  <script type="text/javascript">
-  var jacketFlag = 0;
-     $('map').imageMapResize();
-     function glassesHover()
-     {
-       glassesFlag = 1;
-       $("#fashion").attr('src', '../images/glassesOverlay.png');
-     }
-     function defaultPic()
-     {
-       jacketFlag = 0;
-       $("#fashion").attr('src', '../images/pic01.png');
-     }
-     function jacketTap()
-     {
-       if(typeof window.orientation !== 'undefined' && jacketFlag != 1)
-       {
-         $("#fashion").attr('src', '../images/jacketOverlay.png');
-         setJacketFlag();
-       }
-       else if (jacketFlag == 1)
-       {
-         jacketFlag = 0;
-         OpenInNewTab("http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html")
-         defaultPic();
-       }
-
-     }
-     function jacketHover()
-     {
-       if(typeof window.orientation == 'undefined' && jacketFlag != 1)
-       {
-         $("#fashion").attr('src', '../images/jacketOverlay.png');
-         setJacketFlag();
-       }
-     }
-  function setJacketFlag()
-  {
-  jacketFlag = 1;
-  }
-     function lipsHover()
-     {
-       lipsFlag = 1;
-       $("#fashion").attr('src', '../images/lipstickOverlay.png');
-     }
-     function glassesTap()
-     {
-       document.getElementById("glassClick").click();
-       defaultPic();
-     }
-     function OpenInNewTab(url)
-     {
-        var win = window.open(url, '_blank');
-        win.focus();
-      }
-
-
-  </script>
 </head>
 <body>
     <img src="../images/pic01.png" usemap="#glasses" id="fashion" position="relative" style="max-width:900px;width:100%;display:block;margin:0 auto;"/>
@@ -75,7 +17,64 @@
     <button id="glassClick" style="display:none"></button>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="../assets/js/imageMapResizer.min.js"></script>
+    <script type="text/javascript">
+    var jacketFlag = 0;
+	     $('map').imageMapResize();
+       function glassesHover()
+       {
+         glassesFlag = 1;
+         $("#fashion").attr('src', '../images/glassesOverlay.png');
+       }
+       function defaultPic()
+       {
+         jacketFlag = 0;
+         $("#fashion").attr('src', '../images/pic01.png');
+       }
+       function jacketTap()
+       {
+         if(typeof window.orientation !== 'undefined' && jacketFlag != 1)
+         {
+           $("#fashion").attr('src', '../images/jacketOverlay.png');
+           setJacketFlag();
+         }
+         else if (jacketFlag == 1)
+         {
+           jacketFlag = 0;
+           OpenInNewTab("http://www.inspiredbylabels.com/shop/clothes/biker-mania-darker-jacket-buy.html")
+           defaultPic();
+         }
 
+       }
+       function jacketHover()
+       {
+         if(typeof window.orientation == 'undefined' && jacketFlag != 1)
+         {
+           $("#fashion").attr('src', '../images/jacketOverlay.png');
+           setJacketFlag();
+         }
+       }
+function setJacketFlag()
+{
+  jacketFlag = 1;
+}
+       function lipsHover()
+       {
+         lipsFlag = 1;
+         $("#fashion").attr('src', '../images/lipstickOverlay.png');
+       }
+       function glassesTap()
+       {
+         document.getElementById("glassClick").click();
+         defaultPic();
+       }
+       function OpenInNewTab(url)
+       {
+          var win = window.open(url, '_blank');
+          win.focus();
+        }
+
+
+  </script>
   <script>
     var handler = StripeCheckout.configure({
       key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
