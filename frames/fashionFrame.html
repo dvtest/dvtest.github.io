@@ -54,30 +54,33 @@
            setJacketFlag();
          }
        }
-function setJacketFlag()
-{
-  jacketFlag = 1;
-}
+        function setJacketFlag()
+        {
+          jacketFlag = 1;
+        }
 
-function lipsTap()
-{
-  if(typeof window.orientation !== 'undefined' && lipsFlag != 1)
-  {
-    $("#fashion").attr('src', '../images/lipstickOverlay.png');
-    setLipsFlag();
-  }
-  else if (lipsFlag == 1)
-  {
-    lipsFlag = 0;
-    OpenInNewTab("http://www.sephora.com/audacious-lipstick-P387906")
-    defaultPic();
-  }
+        function lipsTap()
+        {
+          if(typeof window.orientation !== 'undefined' && lipsFlag != 1)
+          {
+            $("#fashion").attr('src', '../images/lipstickOverlay.png');
+            setLipsFlag();
+          }
+          else if (lipsFlag == 1)
+          {
+            lipsFlag = 0;
+            OpenInNewTab("http://www.sephora.com/audacious-lipstick-P387906")
+            defaultPic();
+          }
 
-}
+        }
        function lipsHover()
        {
-         lipsFlag = 1;
-         $("#fashion").attr('src', '../images/lipstickOverlay.png');
+         if(typeof window.orientation == 'undefined' && lipsFlag != 1)
+         {
+           $("#fashion").attr('src', '../images/lipsOverlay.png');
+           setLipsFlag();
+         }
        }
        function setLipsFlag()
        {
