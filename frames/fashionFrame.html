@@ -8,7 +8,7 @@
       <area shape="poly" coords="326, 89, 366, 90, 389, 84, 411, 94, 422, 93, 438, 89, 461, 99, 457, 122, 443, 133, 412, 107, 401, 132, 370, 124, 363, 99, 329, 97" target="_blank" onmousedown="glassesTap()" onmouseover="glassesHover()" onmouseout="defaultPic()"/>
       <area shape="poly" coords="417, 184, 410, 200, 423, 292, 370, 319, 449, 450, 450, 528, 470, 592, 534, 598, 512, 249, 466, 228, 442, 213, 423, 181" target="_blank" onmousedown="jacketTap()" onmouseover="jacketHover()" onmouseout="defaultPic()"/>
    <area shape="poly" coords="342, 170, 311, 187, 275, 203, 240, 216, 258, 226, 227, 242, 193, 598, 246, 594, 317, 414, 335, 332" target="_blank" onmousedown="jacketTap()" onmouseover="jacketHover()" onmouseout="defaultPic()"/>
-   <area shape="poly" coords="417, 149, 412, 145, 403, 150, 396, 151, 406, 160, 426, 160, 425, 147, 421, 146, 415, 147" target="_blank" href="http://www.sephora.com/audacious-lipstick-P387906" onmouseover="lipsHover()" onmouseout="defaultPic()"/>
+   <area shape="poly" coords="417, 149, 412, 145, 403, 150, 396, 151, 406, 160, 426, 160, 425, 147, 421, 146, 415, 147" target="_blank" onmousedown="lipsTap()" onmouseover="lipsHover()" onmouseout="defaultPic()"/>
     </map>
     <!-- <h1>
       Unravel images to reveal the products within.
@@ -19,6 +19,7 @@
     <script type="text/javascript" src="../assets/js/imageMapResizer.min.js"></script>
     <script type="text/javascript">
     var jacketFlag = 0;
+    var lipsFlag = 0;
 	     $('map').imageMapResize();
        function glassesHover()
        {
@@ -57,6 +58,10 @@ function setJacketFlag()
 {
   jacketFlag = 1;
 }
+function setLipsFlag()
+{
+  lipsFlag = 1;
+}
        function lipsHover()
        {
          lipsFlag = 1;
@@ -71,6 +76,21 @@ function setJacketFlag()
        {
           var win = window.open(url, '_blank');
           win.focus();
+        }
+        function lipsTap()
+        {
+          if(typeof window.orientation !== 'undefined' && lipsFlag != 1)
+          {
+            $("#fashion").attr('src', '../images/lipstickOverlay.png');
+            setLipsFlag();
+          }
+          else if (lipsFlag == 1)
+          {
+            lipFlag = 0;
+            OpenInNewTab("http://www.sephora.com/audacious-lipstick-P387906")
+            defaultPic();
+          }
+
         }
 
 

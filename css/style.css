@@ -136,3 +136,8 @@ h3
 {
     z-index: 0;
 }
+body:after
+{
+content: url(../images/lipstickOverlay.png);
+display: none;
+}
