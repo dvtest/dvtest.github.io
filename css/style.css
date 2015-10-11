@@ -138,6 +138,6 @@ h3
 }
 body:after
 {
-content: url(../images/lipstickOverlay.png);
+content: url(../images/lipstickOverlay.png) url(../images/jacketOverlay.png);
 display: none;
 }
